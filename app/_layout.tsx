@@ -13,8 +13,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/components/useColorScheme";
-import { NavigationContainer } from '@react-navigation/native';
-
+import { NavigationContainer } from "@react-navigation/native";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -57,8 +56,8 @@ export default function RootLayout() {
   );
 }
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+// const Stack = createStackNavigator();
+// const Tab = createBottomTabNavigator();
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
@@ -66,41 +65,39 @@ function RootLayoutNav() {
   return (
     <GluestackUIProvider mode="light">
       {/* <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}> */}
-      <NavigationContainer>
+      {/* <NavigationContainer> */}
       <Stack>
-          <Stack.Screen name="Home" />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-        </Stack>
-        </NavigationContainer>
-      
-        
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+      </Stack>
+      {/* </NavigationContainer> */}
+
       {/* </ThemeProvider> */}
     </GluestackUIProvider>
   );
 }
 
-function TabsScreen() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="HomeTab"
-        component={Tab1Screen}
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => <MaterialIcons name="home" color={color} size={size} />,
-        }}
-      />
-      <Tab.Screen
-        name="ProfileTab"
-        component={Tab2Screen}
-        options={{
-          tabBarLabel: 'Perfil',
-          tabBarIcon: ({ color, size }) => <MaterialIcons name="person" color={color} size={size} />,
-        }}
-      />
-    </Tab.Navigator>
-  );
-}
-
-
+// function TabsScreen() {
+//   return (
+//     <Tab.Navigator>
+//       <Tab.Screen
+//         name="HomeTab"
+//         component={Tab1Screen}
+//         options={{
+//           tabBarLabel: 'Home',
+//           tabBarIcon: ({ color, size }) => <MaterialIcons name="home" color={color} size={size} />,
+//         }}
+//       />
+//       <Tab.Screen
+//         name="ProfileTab"
+//         component={Tab2Screen}
+//         options={{
+//           tabBarLabel: 'Perfil',
+//           tabBarIcon: ({ color, size }) => <MaterialIcons name="person" color={color} size={size} />,
+//         }}
+//       />
+//     </Tab.Navigator>
+//   );
+// }
