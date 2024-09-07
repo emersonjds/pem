@@ -1,11 +1,57 @@
 import { View, Text, Image } from "react-native";
-import { Link } from "expo-router";
+import { Link, useNavigation } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, ButtonText } from "@/components/ui/button";
+import { AlertDialog, AlertDialogBackdrop, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader } from "@/components/ui/alert-dialog";
+import { Heading } from "@/components/ui/heading";
+import React from "react";
+import { LogBox } from 'react-native';
+
+
 
 export default function EntryScreen() {
+  LogBox.ignoreAllLogs(); // Desativa todos os alertas amarelos
+
+
+  const [showAlertDialog, setShowAlertDialog] = React.useState(false)
+  const handleClose = () => setShowAlertDialog(false)
+  const navigation = useNavigation();
+
   return (
-    <SafeAreaView
+    <>
+      <AlertDialog isOpen={showAlertDialog} onClose={handleClose} size="md">
+        <AlertDialogBackdrop />
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <Heading className="text-typography-950 font-semibold" size="md">
+              Bem vindo ao Pernanbuco Mulher
+            </Heading>
+          </AlertDialogHeader>
+          <AlertDialogBody className="mt-3 mb-4">
+            <Text size="sm">
+              Personalize o nome do app e a logo para uma maior privacidade
+            </Text>
+          </AlertDialogBody>
+          <AlertDialogFooter className="">
+            <Button
+              variant="outline"
+              action="secondary"
+              onPress={() => {
+                setShowAlertDialog(false);
+                navigation.navigate("(tabs)");
+              }}
+              size="sm"
+            >
+              <ButtonText>Não, obrigado</ButtonText>
+            </Button>
+            <Button size="sm" onPress={handleClose}>
+              <ButtonText>Ir</ButtonText>
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <SafeAreaView
       style={{
         flex: 1,
         justifyContent: "center",
@@ -44,7 +90,7 @@ export default function EntryScreen() {
           </Button>
         </Link>
         {/* Botão de Registrar */}
-        <Link href="/(tabs)" asChild className="mt-2">
+        {/* <Link href="/(tabs)" asChild className="mt-2"> */}
           <Button
             size="md"
             variant="solid"
@@ -53,11 +99,14 @@ export default function EntryScreen() {
               backgroundColor: "#6366f1",
               width: "100%",
             }}
+            onPress={() => setShowAlertDialog(true)}
           >
             <ButtonText>Logar de maneira anonima</ButtonText>
           </Button>
-        </Link>
+        {/* </Link> */}
       </View>
     </SafeAreaView>
+    </>
+    
   );
 }

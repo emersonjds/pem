@@ -64,41 +64,11 @@ function RootLayoutNav() {
 
   return (
     <GluestackUIProvider mode="light">
-      {/* <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}> */}
-      {/* <NavigationContainer> */}
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: "modal" ,  title: 'Aviso' }} />,
-        
       </Stack>
-      {/* </NavigationContainer> */}
-
-      {/* </ThemeProvider> */}
     </GluestackUIProvider>
   );
 }
-
-// function TabsScreen() {
-//   return (
-//     <Tab.Navigator>
-//       <Tab.Screen
-//         name="HomeTab"
-//         component={Tab1Screen}
-//         options={{
-//           tabBarLabel: 'Home',
-//           tabBarIcon: ({ color, size }) => <MaterialIcons name="home" color={color} size={size} />,
-//         }}
-//       />
-//       <Tab.Screen
-//         name="ProfileTab"
-//         component={Tab2Screen}
-//         options={{
-//           tabBarLabel: 'Perfil',
-//           tabBarIcon: ({ color, size }) => <MaterialIcons name="person" color={color} size={size} />,
-//         }}
-//       />
-//     </Tab.Navigator>
-//   );
-// }
