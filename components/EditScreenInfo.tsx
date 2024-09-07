@@ -1,77 +1,61 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { ExternalLink } from './ExternalLink';
-import { MonoText } from './StyledText';
-import { Text, View } from './Themed';
+import { useNavigation } from "expo-router";
+import { VStack } from "./ui/vstack";
+import { Text } from "./ui/text";
+import { Box } from "./ui/box";
+import { Button, ButtonText } from "./ui/button";
+import { View } from "react-native";
+import { Link } from "./ui/link";
+import { Divider } from "./ui/divider";
 
-import Colors from '@/constants/Colors';
+export default function EditScreenInfo() {
+  const navigation = useNavigation();
 
-export default function EditScreenInfo({ path }: { path: string }) {
   return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
+    <SafeAreaView
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        // backgroundColor: "#f5f5f5",
+      }}
+    >
+      <View className="flex flex-1 items-center, justify-center">
+        {/* Título */}
+        <Text className="text-3xl text-center bold">
+          A importância de utilizar este aplicativo
         </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
+        <View className="mt-5 mb-5">
+        <Divider />
         </View>
+        
 
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
+        {/* Mensagem de Apoio */}
+        <Text className="text-center">
+          Este aplicativo foi criado especialmente para oferecer suporte e
+          proteção às mulheres. Todas as suas interações podem ser feitas de
+          forma completamente anônima, sem a possibilidade de qualquer parceiro
+          que já tenha atacado você descobrir suas ações. Seu bem-estar e
+          segurança são nossa prioridade.
         </Text>
-      </View>
 
-      <View style={styles.helpContainer}>
-        <ExternalLink
-          style={styles.helpLink}
-          href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
+        {/* Mensagem de Segurança */}
+        <Box bg="#ffeded" padding={16} borderRadius={10} mt={4}>
+          <Text
+            style={{
+              fontSize: 14,
+              color: "#ff6b6b",
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            Sua privacidade é garantida. Nenhum dado será compartilhado sem o
+            seu consentimento.
           </Text>
-        </ExternalLink>
+        </Box>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightContainer: {
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  helpContainer: {
-    marginTop: 15,
-    marginHorizontal: 20,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    textAlign: 'center',
-  },
-});
