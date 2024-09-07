@@ -1,7 +1,5 @@
-import { ScrollView, StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { ScrollView } from 'react-native';
+import { Text } from '@/components/Themed';
 import { Card } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import { Heading } from '@/components/ui/heading';
@@ -9,19 +7,15 @@ import { Link, LinkText } from '@/components/ui/link';
 import { HStack } from '@/components/ui/hstack';
 import { ArrowRightIcon, Icon } from '@/components/ui/icon';
 
-
 export default function TabTwoScreen() {
   return (
     <ScrollView>
     <Card className="p-5 rounded-lg max-w-[360px] m-3 mb-10">
-    <Image
-      
+    <Image      
       source={{
         uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_3AHrrr0rHZ_SAMQrFX0Rp1SEioNfRqT1Q&s",
       }}
-      className="mb-6 h-[240px] w-full rounded-md resize cover"
-      
-    />
+      className="mb-6 h-[240px] w-full rounded-md resize cover"/>
     <Text className="text-sm font-normal mb-2 text-typography-700">
       Aug 28, 2024
     </Text>
@@ -78,19 +72,3 @@ export default function TabTwoScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
