@@ -7,11 +7,8 @@ import { Heading } from "@/components/ui/heading";
 import React from "react";
 import { LogBox } from 'react-native';
 
-
-
 export default function EntryScreen() {
   LogBox.ignoreAllLogs(); // Desativa todos os alertas amarelos
-
 
   const [showAlertDialog, setShowAlertDialog] = React.useState(false)
   const handleClose = () => setShowAlertDialog(false)

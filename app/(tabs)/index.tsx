@@ -1,4 +1,4 @@
-import { Alert, ScrollView, StyleSheet, View } from "react-native";
+import { Alert, ScrollView, View } from "react-native";
 import { Text } from "@/components/Themed";
 import { Button, ButtonText } from "@/components/ui/button";
 import React from "react";
