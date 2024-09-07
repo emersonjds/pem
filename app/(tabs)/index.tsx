@@ -1,27 +1,12 @@
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
-
-import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text } from "@/components/Themed";
 import { Button, ButtonText } from "@/components/ui/button";
-import {
-  Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
-  ActionsheetItem,
-  ActionsheetItemText,
-} from "@/components/ui/actionsheet";
 import React from "react";
 import { Divider } from "@/components/ui/divider";
-import { Center } from "@/components/ui/center";
-import { Heading } from "@/components/ui/heading";
 import { Pressable } from "@/components/ui/pressable";
-
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Linking } from 'react-native';
+import { Linking } from "react-native";
 import { VStack } from "@/components/ui/vstack";
-
 
 const CustomButton = ({
   iconName,
@@ -82,15 +67,18 @@ export default function TabOneScreen() {
           onPress: () => console.log("Cancel Pressed"),
           style: "cancel",
         },
-        { text: "Sim", onPress: () => Linking.openURL('https://servicos.sds.pe.gov.br/delegacia/') },
+        {
+          text: "Sim",
+          onPress: () =>
+            Linking.openURL("https://servicos.sds.pe.gov.br/delegacia/"),
+        },
       ]
     );
-  }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
       <ScrollView>
-
         <View className="flex-1 justify-between px-4 h-full">
           <VStack space={6}>
             <View>
@@ -112,9 +100,8 @@ export default function TabOneScreen() {
               >
                 <ButtonText>Boletim Online</ButtonText>
               </Button>
-
             </View>
-<Divider />
+            <Divider />
             <CustomButton
               iconName="gavel"
               label="Delegacias Especializadas no Atendimento à Mulher (DEAM)"
