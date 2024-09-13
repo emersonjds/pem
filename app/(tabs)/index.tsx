@@ -90,7 +90,6 @@ export default function TabOneScreen() {
               >
                 <ButtonText>Botao de Panico</ButtonText>
               </Button>
-
               <Button
                 onPress={() => alertBoletim()}
                 style={{
