@@ -82,7 +82,6 @@ export default function TabOneScreen() {
         <View className="flex-1 justify-between px-4 h-full">
           <VStack space={6}>
             <View>
-              
               <Button
                 onPress={() => alertMessage()}
                 style={{
