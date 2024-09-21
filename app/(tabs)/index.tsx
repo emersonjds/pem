@@ -80,7 +80,7 @@ export default function TabOneScreen() {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
       <ScrollView>
         <View className="flex-1 justify-between px-4 h-full">
-          <VStack space={6}>
+          <VStack space="lg">
             <View>
               <Button
                 onPress={() => alertMessage()}
